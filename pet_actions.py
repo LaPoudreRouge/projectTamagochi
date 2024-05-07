@@ -7,7 +7,7 @@ def check_status():
 	check if any pet variable got to 0 or less
 	"""
 	for pet in v.pets:
-		if (pet["hunger"] <= 0) or (pet["health"] <= 0) or (pet["exhaustion"] <= 0):
+		if (pet["health"] <= 0) or (pet["exhaustion"] <= 0):
 			v.game_over = True
 		if pet["boredom"] <= 0:
 			pet["bored"] = True
