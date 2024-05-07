@@ -34,9 +34,9 @@ def status_update():
 
 		else:  # Awake
 			if pet["hunger"] > 0:
-				pet["health"] -= 5
-			else:
 				pet["hunger"] -= 5
+			else:
+				pet["health"] -= 5
 			if pet["boredom"] > 0:
 				pet["boredom"] -= 3
 			if any_pet_bored:
