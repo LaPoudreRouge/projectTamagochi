@@ -8,7 +8,7 @@ def check_status():
 	"""
 	for pet in v.pets:
 		if pet["health"] <= 0 or pet["exhaustion"] <= 0:
-			v.game_over = True
+			v.game_state_change("game over")
 		if pet["boredom"] <= 0:
 			pet["bored"] = True
 		else:

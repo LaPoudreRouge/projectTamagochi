@@ -13,10 +13,8 @@ pets = [
 
 current_pet = 0  # 0 to 4. show which pet you are on (important for displays and feed and play...)
 
-# check if we should stop the game
-game_over = False
-
-game_state = {"main menu": True, "game running": False, "paused": False}
+# status of the game
+game_state = {"main menu": True, "game running": False, "paused": False, "game over": False}
 
 
 def game_state_change(target_state):

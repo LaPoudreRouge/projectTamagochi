@@ -72,7 +72,7 @@ def display_draw_main():
 		draw_cookies()
 		pets_stats_bars_(0, 0)
 		draw_pet()
-		if v.game_over:
-			draw_game_over()
 	elif v.game_state["main menu"]:
 		draw_main_menu()
+	elif v.game_state["game over"]:
+		draw_game_over()
