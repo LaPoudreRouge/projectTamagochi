@@ -67,7 +67,7 @@ def draw_main_menu():
 
 
 def display_draw_main():
-	if v.game_state["game running"]:
+	if v.game_state["game running"] or v.game_state["paused"]:
 		draw_clock_anim()
 		draw_cookies()
 		pets_stats_bars_(0, 0)
