@@ -4,7 +4,7 @@ px.init(90, 90, title="Tamagochi")
 
 import variables as v
 from pet_actions import pet_action_main
-from imputs import button_main
+from inputs import button_main
 from display import display_draw_main
 
 
