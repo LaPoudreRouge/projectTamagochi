@@ -1,6 +1,7 @@
 import pyxel as px
 import variables as v
 from pet_actions import pet_feed, pet_play
+from load_save import load
 
 button_pressed = {"g": False, "h": False, "f": False, "j": False, "sp": False, "l": False, "p": False}
 
@@ -71,10 +72,7 @@ def main_menu():
 	if px.btn(px.KEY_L):  # load save toggle
 		if not (button_pressed["l"]):
 			button_pressed["l"] = True
-			if v.load:
-				v.load = False
-			else:
-				v.load = True
+			load()
 	else:
 		button_pressed["l"] = False
 

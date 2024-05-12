@@ -10,23 +10,21 @@ import variables as v
 # line 6 -> info time.
 # line 7 -> info number of cookies.
 
-if v.load:
+def load():
+	print("loading")
 	try:
 		info = open('game_data.txt', 'r+')
 	except FileNotFoundError:
-		open('game_data.txt', 'w')
-		info = open('game_data.text', 'r+')
+		info = open('game_data.txt', 'w+')
+		#info = open('game_data.text', 'r+')
 	content = info.read()
 	if len(content) != 0:
 		list = content.split("\n")
 		for i in range(len(list)):
 			temp = list[i].split(" ")
+			print(temp)
 			list[i] = temp
-		# list to be transformed into a dictionary
-		# utiliser boucle for
-		# une boucle pour faire cylce des 5 animaux
-		# la boucle contient un pointeur*
-
+		print(list)
 		v.pets = [
 			{"hunger": int(list[0][0]), "health": int(list[0][1]), "boredom": int(list[0][2]),
 			 "exhaustion": int(list[0][3]), "sleeping": bool(list[0][4]), "bored": bool(list[0][5])},
@@ -42,12 +40,17 @@ if v.load:
 		v.day_state = bool(list[5])
 		v.day_night_timer = int(list[6][0])
 		v.cookie_count = int(list[7][0])
+		print("file successfully loaded")
+	else:
+		print("no data in file")
+	# 	pets = [
+	# 		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
+	# 		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
+	# 		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
+	# 		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
+	# 		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
+	# 	]
 
-
-# print(v.pets)
-# print(v.day_state)
-# print(v.day_night_timer)
-# print(v.cookie_count)
 
 def save():
 	text_saved = ""
