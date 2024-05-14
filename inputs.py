@@ -3,7 +3,7 @@ import variables as v
 from pet_actions import pet_feed, pet_play
 import load_save as ls
 
-button_pressed = {"g": False, "h": False, "f": False, "j": False, "sp": False, "l": False, "p": False}
+button_pressed = {"g": False, "h": False, "f": False, "j": False, "sp": False, "l": False, "p": False, "s": False}
 
 
 def feed_button():
@@ -90,6 +90,12 @@ def pause_menu():
 			v.game_state_change("game running")
 	else:
 		button_pressed["p"] = False
+	if px.btn(px.KEY_S):
+		if not (button_pressed["s"]):
+			button_pressed["s"] = True
+			ls.save()
+	else:
+		button_pressed["s"] = False
 
 
 def button_main():
