@@ -1,5 +1,6 @@
 import variables as v
 
+
 # game_data.txt
 # line 0 -> info pet 1.
 # line 1 -> info pet 2.
@@ -16,7 +17,7 @@ def load():
 		info = open('game_data.txt', 'r+')
 	except FileNotFoundError:
 		info = open('game_data.txt', 'w+')
-		#info = open('game_data.text', 'r+')
+	# info = open('game_data.text', 'r+')
 	content = info.read()
 	if len(content) != 0:
 		list = content.split("\n")
@@ -43,13 +44,15 @@ def load():
 		print("file successfully loaded")
 	else:
 		print("no data in file")
-	# 	pets = [
-	# 		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
-	# 		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
-	# 		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
-	# 		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
-	# 		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
-	# 	]
+
+
+# 	pets = [
+# 		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
+# 		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
+# 		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
+# 		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
+# 		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
+# 	]
 
 
 def save():
@@ -72,4 +75,3 @@ def save():
 	file.truncate(0)
 	file.write(text_saved)
 	file.close()
-
