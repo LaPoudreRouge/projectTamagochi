@@ -1,0 +1,8 @@
+95 200 127 150 False False 
+145 200 127 150 False False 
+145 200 127 150 False False 
+145 200 127 150 False False 
+95 200 177 100 False False 
+True
+139
+37
