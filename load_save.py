@@ -23,22 +23,20 @@ def load():
 		list = content.split("\n")
 		for i in range(len(list)):
 			temp = list[i].split(" ")
-			print(temp)
 			list[i] = temp
-		print(list)
 		v.pets = [
 			{"hunger": int(list[0][0]), "health": int(list[0][1]), "boredom": int(list[0][2]),
-			 "exhaustion": int(list[0][3]), "sleeping": bool(list[0][4]), "bored": bool(list[0][5])},
+			 "exhaustion": int(list[0][3]), "sleeping": eval(list[0][4]), "bored": eval(list[0][5])},
 			{"hunger": int(list[1][0]), "health": int(list[1][1]), "boredom": int(list[1][2]),
-			 "exhaustion": int(list[1][3]), "sleeping": bool(list[1][4]), "bored": bool(list[1][5])},
+			 "exhaustion": int(list[1][3]), "sleeping": eval(list[1][4]), "bored": eval(list[1][5])},
 			{"hunger": int(list[2][0]), "health": int(list[2][1]), "boredom": int(list[2][2]),
-			 "exhaustion": int(list[2][3]), "sleeping": bool(list[2][4]), "bored": bool(list[2][5])},
+			 "exhaustion": int(list[2][3]), "sleeping": eval(list[2][4]), "bored": eval(list[2][5])},
 			{"hunger": int(list[3][0]), "health": int(list[3][1]), "boredom": int(list[3][2]),
-			 "exhaustion": int(list[3][3]), "sleeping": bool(list[3][4]), "bored": bool(list[3][5])},
+			 "exhaustion": int(list[3][3]), "sleeping": eval(list[3][4]), "bored": eval(list[3][5])},
 			{"hunger": int(list[4][0]), "health": int(list[4][1]), "boredom": int(list[4][2]),
-			 "exhaustion": int(list[4][3]), "sleeping": bool(list[4][4]), "bored": bool(list[4][5])}
+			 "exhaustion": int(list[4][3]), "sleeping": eval(list[4][4]), "bored": eval(list[4][5])}
 		]
-		v.day_state = bool(list[5])
+		v.day_state = eval(list[5][0])
 		v.day_night_timer = int(list[6][0])
 		v.cookie_count = int(list[7][0])
 		print("file successfully loaded")
