@@ -1,7 +1,7 @@
 import pyxel as px
 import variables as v
 from pet_actions import pet_feed, pet_play
-from load_save import load
+import load_save as ls
 
 button_pressed = {"g": False, "h": False, "f": False, "j": False, "sp": False, "l": False, "p": False}
 
@@ -65,6 +65,8 @@ def main_menu():
 	if px.btn(px.KEY_SPACE):  # launch game
 		if not (button_pressed["sp"]):
 			button_pressed["sp"] = True
+			if v.load:
+				ls.load()
 			v.game_state_change("game running")
 	else:
 		button_pressed["sp"] = False
@@ -72,7 +74,10 @@ def main_menu():
 	if px.btn(px.KEY_L):  # load save toggle
 		if not (button_pressed["l"]):
 			button_pressed["l"] = True
-			load()
+			if v.load:
+				v.load = False
+			else:
+				v.load = True
 	else:
 		button_pressed["l"] = False
 
