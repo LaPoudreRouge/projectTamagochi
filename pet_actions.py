@@ -69,6 +69,8 @@ def status_update_timer():
 		v.sec_countdown = v.sec
 		status_update()
 		day_night_cycle()
+		v.survival_time += 1
+		print(v.survival_time_separator(v.survival_time))
 
 
 def pet_feed():
@@ -111,6 +113,7 @@ def pet_reset():
 	v.day_state = True
 	v.day_night_timer = v.day_time
 	v.cookie_count = 50
+	v.survival_time = 0
 
 
 def pet_action_main():
