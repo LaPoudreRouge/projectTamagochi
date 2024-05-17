@@ -12,7 +12,7 @@ import variables as v
 # line 7 -> info number of cookies.
 
 def load():
-	print("loading")
+	# print("loading")
 	try:
 		info = open('game_data.txt', 'r+')
 	except FileNotFoundError:
@@ -39,9 +39,10 @@ def load():
 		v.day_state = eval(list[5][0])
 		v.day_night_timer = int(list[6][0])
 		v.cookie_count = int(list[7][0])
-		print("file successfully loaded")
+		# print("file successfully loaded")
 	else:
-		print("no data in file")
+		# print("no data in file")
+		pass
 
 
 # 	pets = [
