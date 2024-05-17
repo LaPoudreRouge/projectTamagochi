@@ -1,5 +1,3 @@
-
-
 sec = 30  # a second
 
 sec_countdown = sec
@@ -41,3 +39,9 @@ sprite_pos = [(0, 0), (32, 0), (0, 32), (32, 32), (0, 64)]
 
 day_anim = [(0, 128), (16, 128), (32, 128), (48, 128), (0, 144), (16, 144), (32, 144), (48, 144)]
 night_anim = [(0, 96), (16, 96), (32, 96), (48, 96), (0, 112), (16, 112), (32, 112), (48, 112)]
+
+survival_time = 0
+
+
+def survival_time_separator(time):
+	return time // 3600, (time % 3600) // 60, time % 60  # (h, min, sec)
