@@ -75,7 +75,6 @@ def game_over():
 	if px.btn(px.KEY_SPACE):  # launch game
 		if not (button_pressed["sp"]):
 			button_pressed["sp"] = True
-			print("space")
 			v.game_state_change("main menu")
 	else:
 		button_pressed["sp"] = False
