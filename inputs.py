@@ -105,6 +105,8 @@ def main_menu():
 	else:
 		button_pressed["l"] = False
 
+	game_quit()
+
 
 def pause_menu():
 	global button_pressed
