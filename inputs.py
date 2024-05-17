@@ -3,7 +3,7 @@ import variables as v
 from pet_actions import pet_feed, pet_play,pet_reset
 import load_save as ls
 
-button_pressed = {"g": False, "h": False, "f": False, "j": False, "sp": False, "l": False, "p": False, "s": False}
+button_pressed = {"g": False, "h": False, "f": False, "j": False, "sp": False, "l": False, "p": False, "s": False, "q": False}
 
 
 def feed_button():
@@ -50,6 +50,16 @@ def right_pet():
 		button_pressed["j"] = False
 
 
+def game_quit():
+	global button_pressed
+	if px.btn(px.KEY_Q):
+		if not (button_pressed["q"]):
+			button_pressed["q"] = True
+			px.quit()
+	else:
+		button_pressed["q"] = False
+
+
 def pause_game():
 	global button_pressed
 	if px.btn(px.KEY_P):
@@ -69,6 +79,8 @@ def game_over():
 			v.game_state_change("main menu")
 	else:
 		button_pressed["sp"] = False
+
+	game_quit()
 
 
 def main_menu():
@@ -109,6 +121,8 @@ def pause_menu():
 			ls.save()
 	else:
 		button_pressed["s"] = False
+
+	game_quit()
 
 
 def button_main():
