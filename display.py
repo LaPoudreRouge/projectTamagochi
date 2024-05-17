@@ -3,6 +3,20 @@ import variables as v
 
 px.load("textures.pyxres")
 
+clear = lambda: print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n")
+pet_change = v.current_pet
+
+
+def display_main():
+	global pet_change
+	if v.sec_countdown == 30:
+		clear()
+		print(v.current_pet, v.pets[v.current_pet], v.day_night_timer, v.cookie_count)
+	elif pet_change != v.current_pet:
+		clear()
+		print(v.current_pet, v.pets[v.current_pet], v.day_night_timer, v.cookie_count)
+		pet_change = v.current_pet
+
 
 def pets_stats_bars_(x, y):
 	px.rect(1, 1, 65, 27, 0)
@@ -36,10 +50,18 @@ def draw_clock_anim():
 		a, b = v.night_anim[7 - int(v.day_night_timer // (v.night_time / 8))]
 	px.blt(70, 3, 0, a, b, 16, 16)
 
-
 def draw_commands():
-	px.blt(65, 65, 0, 0, 179, 23, 23)
+	px.blt(53, 67, 0, 64, 96, 35, 21)  # feed, play, pause
+	px.blt(2, 52, 0, 64, 124, 16, 7)  # <- f
+	px.blt(70, 52, 0, 80, 124, 16, 7)  # h ->
 
+
+def draw_pause():
+	# write "game paused"
+	# write actions p = play, s = save data
+	px.blt(19, 29, 0, 24, 176, 52, 9)  # game paused
+	px.blt(31, 40, 0, 24, 187, 28, 9)  # p = play
+	px.blt(30, 51, 0, 0, 160, 30, 9)  # s = save
 
 def draw_game_over():
 	px.rect(25, 40, 40, 9, 0)
@@ -53,10 +75,13 @@ def draw_cookies():
 
 
 def draw_main_menu():
-	px.blt(26, 20, 0, 33, 83, 39, 5)
-	px.blt(32, 30, 0, 67, 1, 26, 23)
-	px.text(3, 60, "space = play", 0)
-	px.text(3, 68, "L = load", 0)
+	px.blt(23, 20, 0, 32, 81, 44, 9)  # title
+	px.blt(32, 30, 0, 67, 1, 26, 23)  # house
+	px.blt(18, 58, 0, 53, 187, 54, 9)  # space to play
+	if v.load:
+		px.blt(30, 70, 0, 80, 160, 30, 9)  # load green
+	else:
+		px.blt(30, 70, 0, 116, 160, 30, 9)  # load red
 	pass
 
 
@@ -67,7 +92,8 @@ def display_draw_main():
 		pets_stats_bars_(0, 0)
 		draw_pet()
 		draw_commands()
-	# if v.game_state["paused"]:
+		if v.game_state["paused"]:
+			draw_pause()
 	elif v.game_state["main menu"]:
 		draw_main_menu()
 	elif v.game_state["game over"]:
