@@ -50,6 +50,8 @@ def draw_clock_anim():
 		a, b = v.night_anim[7 - int(v.day_night_timer // (v.night_time / 8))]
 	px.blt(70, 3, 0, a, b, 16, 16)
 
+def draw_commands():
+	px.blt(65, 65, 0, 0, 179, 23, 23)
 
 def draw_game_over():
 	px.rect(25, 40, 40, 9, 0)
@@ -63,6 +65,10 @@ def draw_cookies():
 
 
 def draw_main_menu():
+	px.blt(26, 20, 0, 33, 83, 39, 5)
+	px.blt(32, 30, 0, 67, 1, 26, 23)
+	px.text(3, 60, "space = play", 0)
+	px.text(3, 68, "L = load", 0)
 	pass
 
 
@@ -72,6 +78,8 @@ def display_draw_main():
 		draw_cookies()
 		pets_stats_bars_(0, 0)
 		draw_pet()
+		draw_commands()
+		#if v.game_state["paused"]:
 	elif v.game_state["main menu"]:
 		draw_main_menu()
 	elif v.game_state["game over"]:
