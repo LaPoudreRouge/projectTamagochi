@@ -98,6 +98,21 @@ def pet_play():
 		print("pet sleeping")
 
 
+def pet_reset():
+	v.pets = [
+		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
+		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
+		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
+		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
+		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False}]
+	v.sec_countdown = v.sec
+	v.current_pet = 0
+	v.load = False
+	v.day_state = True
+	v.day_night_timer = v.day_time
+	v.cookie_count = 50
+
+
 def pet_action_main():
 	if v.game_state["game running"]:
 		status_update_timer()
