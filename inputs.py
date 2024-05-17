@@ -1,6 +1,6 @@
 import pyxel as px
 import variables as v
-from pet_actions import pet_feed, pet_play
+from pet_actions import pet_feed, pet_play,pet_reset
 import load_save as ls
 
 button_pressed = {"g": False, "h": False, "f": False, "j": False, "sp": False, "l": False, "p": False, "s": False}
@@ -60,6 +60,17 @@ def pause_game():
 		button_pressed["p"] = False
 
 
+def game_over():
+	global button_pressed
+	if px.btn(px.KEY_SPACE):  # launch game
+		if not (button_pressed["sp"]):
+			button_pressed["sp"] = True
+			print("space")
+			v.game_state_change("main menu")
+	else:
+		button_pressed["sp"] = False
+
+
 def main_menu():
 	global button_pressed
 	if px.btn(px.KEY_SPACE):  # launch game
@@ -67,6 +78,8 @@ def main_menu():
 			button_pressed["sp"] = True
 			if v.load:
 				ls.load()
+			else:
+				pet_reset()
 			v.game_state_change("game running")
 	else:
 		button_pressed["sp"] = False
@@ -109,3 +122,5 @@ def button_main():
 		main_menu()
 	elif v.game_state["paused"]:
 		pause_menu()
+	elif v.game_state["game over"]:
+		game_over()
