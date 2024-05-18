@@ -70,7 +70,7 @@ def save():
 	text = text.rstrip(text[-1])
 	text_saved = text
 	text_saved += "\n" + str(v.day_state) + "\n" + str(v.day_night_timer) + "\n" + str(v.cookie_count)
-	file = open("game_data.txt", "r+")
+	file = open("game_data.txt", "w+")
 	file.truncate(0)
 	file.write(text_saved)
 	file.close()
