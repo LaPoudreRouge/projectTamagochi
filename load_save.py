@@ -12,12 +12,10 @@ import variables as v
 # line 7 -> info number of cookies.
 
 def load():
-	# print("loading")
 	try:
 		info = open('game_data.txt', 'r+')
 	except FileNotFoundError:
 		info = open('game_data.txt', 'w+')
-	# info = open('game_data.text', 'r+')
 	content = info.read()
 	if len(content) != 0:
 		list = content.split("\n")
@@ -39,19 +37,7 @@ def load():
 		v.day_state = eval(list[5][0])
 		v.day_night_timer = int(list[6][0])
 		v.cookie_count = int(list[7][0])
-		# print("file successfully loaded")
-	else:
-		# print("no data in file")
-		pass
-
-
-# 	pets = [
-# 		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
-# 		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
-# 		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
-# 		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
-# 		{"hunger": 200, "health": 200, "boredom": 200, "exhaustion": 200, "sleeping": False, "bored": False},
-# 	]
+		v.survival_time = int(list[8][0])
 
 
 def save():
@@ -69,7 +55,7 @@ def save():
 		place += 6
 	text = text.rstrip(text[-1])
 	text_saved = text
-	text_saved += "\n" + str(v.day_state) + "\n" + str(v.day_night_timer) + "\n" + str(v.cookie_count)
+	text_saved += "\n" + str(v.day_state) + "\n" + str(v.day_night_timer) + "\n" + str(v.cookie_count) +"\n" + str(v.survival_time)
 	file = open("game_data.txt", "w+")
 	file.truncate(0)
 	file.write(text_saved)
