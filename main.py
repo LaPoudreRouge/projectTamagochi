@@ -1,14 +1,11 @@
 import pyxel as px
 
-px.init(90, 90, title="Tamagochi")
+px.init(90, 90, title="Tamagotchi")
 
-import variables as v
+
 from pet_actions import pet_action_main
 from inputs import button_main
 from display import display_draw_main
-
-
-# with open(saveName,"w") as saveFile:
 
 
 def update():

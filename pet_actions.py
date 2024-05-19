@@ -31,7 +31,6 @@ def status_update():
 				pet["boredom"] = min(pet["boredom"] + 5, 200)
 			if pet["exhaustion"] < 200:
 				pet["exhaustion"] = min(pet["exhaustion"] + 5, 200)
-
 		else:  # Awake
 			if pet["hunger"] > 0:
 				pet["hunger"] -= 3
@@ -81,10 +80,6 @@ def pet_feed():
 		if v.cookie_count > 0:
 			v.pets[v.current_pet]["hunger"] = min(v.pets[v.current_pet]["hunger"] + 50, 200)
 			v.cookie_count -= 1
-	#	else:
-	#		print("no more cookies")
-	#else:
-	#	print("pet sleeping")
 
 
 def pet_play():
@@ -95,8 +90,6 @@ def pet_play():
 	if v.day_state and (v.pets[v.current_pet]["exhaustion"] > 0):
 		v.pets[v.current_pet]["boredom"] = min(v.pets[v.current_pet]["boredom"] + 50, 200)
 		v.pets[v.current_pet]["exhaustion"] = max(v.pets[v.current_pet]["exhaustion"] - 50, 0)
-	#else:
-	#	print("pet sleeping")
 
 
 def pet_reset():

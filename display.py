@@ -64,12 +64,16 @@ def draw_commands():
 
 
 def draw_pause():
-	px.rect(16, 26, 58, 48, 0)
-	px.rect(17, 27, 56, 46, 2)
-	px.blt(19, 29, 0, 24, 176, 52, 9)  # game paused
-	px.blt(31, 40, 0, 24, 187, 28, 9)  # p = play
-	px.blt(30, 51, 0, 0, 160, 30, 9)  # s = save
-	px.blt(28, 62, 0, 24, 199, 34, 9)  # q : quit
+	px.rect(14, 16, 62, 61, 0)
+	px.rect(15, 17, 60, 59, 12)
+	px.blt(19, 19, 0, 24, 176, 52, 9)  # game paused
+	px.blt(31, 30, 0, 24, 187, 28, 9)  # p = play
+	if v.save:
+		px.blt(30, 41, 0, 32, 160, 30, 9)  # s = save
+	else:
+		px.blt(30, 41, 0, 0, 160, 30, 9)
+	px.blt(28, 52, 0, 24, 199, 34, 9)  # q : quit
+	px.blt(16, 63, 0, 80, 178, 58, 9)
 
 def draw_game_over():
 	px.cls(15)
@@ -82,7 +86,7 @@ def draw_game_over():
 	px.text(0, 26, f" {v.survival_time_separator(v.survival_time)[0]} hours",0)
 	px.text(0, 33, f" {v.survival_time_separator(v.survival_time)[1]} minutes",0)
 	px.text(0, 40, f" {v.survival_time_separator(v.survival_time)[2]} seconds",0)
-	px.blt(1 ,68, 0, 67,36, 26, 20)  # dead one
+	px.blt(1, 68, 0, 67,36, 26, 20)  # dead one
 	px.blt(63, 68, 0, 67, 36, 26, 20)  # dead one
 	px.blt(6, 2, 0, 66, 56, 12, 12)  # flower
 	px.blt(72, 2, 0, 66, 56, 12, 12)  # flower
@@ -97,10 +101,10 @@ def draw_cookies():
 
 
 def draw_main_menu():
-	px.blt(23, 10, 0, 32, 81, 44, 9)  # title
+	px.blt(21, 10, 0, 32, 81, 48, 9)  # title
 	px.blt(32, 20, 0, 65, 0, 30, 27)  # house
 	px.blt(18, 49, 0, 53, 187, 54, 9)  # space to play
-	px.blt(28, 71, 0, 24, 199, 34, 9)  #q : quit
+	px.blt(28, 71, 0, 24, 199, 34, 9)  # q : quit
 	if v.load:
 		px.blt(30, 60, 0, 80, 160, 30, 9)  # load green
 	else:

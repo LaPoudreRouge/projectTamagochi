@@ -24,6 +24,7 @@ def game_state_change(target_state):
 
 
 load = False
+save = False
 
 day_time = 180  # sec  3min
 

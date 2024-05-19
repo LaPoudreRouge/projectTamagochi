@@ -11,6 +11,7 @@ import variables as v
 # line 6 -> info time.
 # line 7 -> info number of cookies.
 
+
 def load():
 	try:
 		info = open('game_data.txt', 'r+')

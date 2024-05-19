@@ -89,6 +89,7 @@ def main_menu():
 			button_pressed["sp"] = True
 			if v.load:
 				ls.load()
+				v.load = False
 			else:
 				pet_reset()
 			v.game_state_change("game running")
@@ -114,14 +115,23 @@ def pause_menu():
 		if not (button_pressed["p"]):
 			button_pressed["p"] = True
 			v.game_state_change("game running")
+			v.save = False
 	else:
 		button_pressed["p"] = False
 	if px.btn(px.KEY_S):
 		if not (button_pressed["s"]):
 			button_pressed["s"] = True
 			ls.save()
+			v.save = True
 	else:
 		button_pressed["s"] = False
+	if px.btn(px.KEY_SPACE):  # launch game
+		if not (button_pressed["sp"]):
+			button_pressed["sp"] = True
+			v.game_state_change("main menu")
+			v.save = False
+	else:
+		button_pressed["sp"] = False
 
 	game_quit()
 
