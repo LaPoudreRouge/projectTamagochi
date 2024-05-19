@@ -39,7 +39,10 @@ def pets_stats_bars_(x, y):
 
 
 def draw_pet():
-	a, b = v.sprite_pos[v.current_pet]
+	if v.day_state:
+		a, b = v.sprite_pos_day[v.current_pet]
+	else:
+		a, b = v.sprite_pos_night[v.current_pet]
 	px.blt(29, 40, 0, a, b, 32, 32)
 
 
@@ -52,24 +55,29 @@ def draw_clock_anim():
 
 def draw_commands():
 	px.blt(53, 67, 0, 64, 96, 35, 21)  # feed, play, pause
-	px.blt(2, 52, 0, 64, 124, 16, 7)  # <- f
-	px.blt(70, 52, 0, 80, 124, 16, 7)  # h ->
+	if v.day_state:
+		px.blt(2, 52, 0, 64, 124, 16, 7)  # <- f
+		px.blt(72, 52, 0, 80, 124, 16, 7)  # h ->
+	else:
+		px.blt(2, 52, 0, 64, 132, 16, 7)  # <- f
+		px.blt(72, 52, 0, 80, 132, 16, 7)  # h ->
 
 
 def draw_pause():
 	px.rect(16, 26, 58, 48, 0)
-	px.rect(17, 27, 56, 46, 9)
+	px.rect(17, 27, 56, 46, 2)
 	px.blt(19, 29, 0, 24, 176, 52, 9)  # game paused
 	px.blt(31, 40, 0, 24, 187, 28, 9)  # p = play
 	px.blt(30, 51, 0, 0, 160, 30, 9)  # s = save
 	px.blt(28, 62, 0, 24, 199, 34, 9)  # q : quit
 
 def draw_game_over():
+	px.cls(15)
 	px.blt(24, 5, 0, 58, 199, 42, 9)  # game over
 	px.blt(16, 52, 0, 80, 178, 58, 9)  # space to menu
 	px.blt(28, 63, 0, 24, 199, 34, 9)  # q quit
 	px.rect(2, 16, 86, 34, 0)
-	px.rect(3, 17, 84, 32, 7)
+	px.rect(3, 17, 84, 32, 9)
 	px.blt(4,19,0,64,147,67,5)
 	px.text(0, 26,f" {v.survival_time_separator(v.survival_time)[0]} hours",0)
 	px.text(0, 35, f" {v.survival_time_separator(v.survival_time)[1]} minutes",0)
@@ -80,7 +88,10 @@ def draw_game_over():
 	px.blt(72, 2, 0, 66, 56, 12, 12)  # flower
 
 def draw_cookies():
-	px.blt(1, 74, 0, 32, 64, 16, 16)
+	if v.day_state:
+		px.blt(1, 74, 0, 32, 64, 16, 16)
+	else:
+		px.blt(1, 74, 0, 48, 64, 16, 16)
 	px.text(17, 80, ":" + str(v.cookie_count), 0)
 
 
@@ -98,6 +109,10 @@ def draw_main_menu():
 
 def display_draw_main():
 	if v.game_state["game running"] or v.game_state["paused"]:
+		if v.day_state:
+			px.cls(15)
+		else:
+			px.cls(1)
 		draw_clock_anim()
 		draw_cookies()
 		pets_stats_bars_(0, 0)
