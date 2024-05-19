@@ -73,19 +73,20 @@ def draw_pause():
 
 def draw_game_over():
 	px.cls(15)
-	px.blt(24, 5, 0, 58, 199, 42, 9)  # game over
-	px.blt(16, 52, 0, 80, 178, 58, 9)  # space to menu
-	px.blt(28, 63, 0, 24, 199, 34, 9)  # q quit
-	px.rect(2, 16, 86, 34, 0)
-	px.rect(3, 17, 84, 32, 9)
-	px.blt(4,19,0,64,147,67,5)
-	px.text(0, 26,f" {v.survival_time_separator(v.survival_time)[0]} hours",0)
-	px.text(0, 35, f" {v.survival_time_separator(v.survival_time)[1]} minutes",0)
-	px.text(0, 42, f" {v.survival_time_separator(v.survival_time)[2]} seconds",0)
-	px.blt(1,63,0,67,36,26,20)  # dead one
-	px.blt(63, 63, 0, 67, 36, 26, 20)  # dead one
+	px.blt(24, 4, 0, 58, 199, 42, 9)  # game over
+	px.blt(16, 50, 0, 80, 178, 58, 9)  # space to menu
+	px.blt(28, 61, 0, 24, 199, 34, 9)  # q quit
+	px.rect(2, 16, 86, 32, 0)
+	px.rect(3, 17, 84, 30, 9)
+	px.blt(4, 19, 0, 64, 147, 67, 5)
+	px.text(0, 26, f" {v.survival_time_separator(v.survival_time)[0]} hours",0)
+	px.text(0, 33, f" {v.survival_time_separator(v.survival_time)[1]} minutes",0)
+	px.text(0, 40, f" {v.survival_time_separator(v.survival_time)[2]} seconds",0)
+	px.blt(1 ,68, 0, 67,36, 26, 20)  # dead one
+	px.blt(63, 68, 0, 67, 36, 26, 20)  # dead one
 	px.blt(6, 2, 0, 66, 56, 12, 12)  # flower
 	px.blt(72, 2, 0, 66, 56, 12, 12)  # flower
+	px.blt(34, 71, 0, 133, 68, 22, 17)
 
 def draw_cookies():
 	if v.day_state:
