@@ -64,8 +64,8 @@ def draw_commands():
 
 
 def draw_pause():
-	px.rect(14, 16, 62, 61, 0)
-	px.rect(15, 17, 60, 59, 12)
+	px.rect(13, 16, 64, 59, 0)
+	px.rect(14, 17, 62, 57, 12)
 	px.blt(19, 19, 0, 24, 176, 52, 9)  # game paused
 	px.blt(31, 30, 0, 24, 187, 28, 9)  # p = play
 	if v.save:
